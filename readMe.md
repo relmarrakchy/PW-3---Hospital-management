@@ -75,27 +75,27 @@ public class Patient {
     <em>Login page</em>
 </p>
 <p align="center">
-    <img src="images/img_1.png" alt="Description of the image" width="300" />
+    <img src="images/img_1.png" alt="Description of the image"  />
     <br />
     <em>Home page</em>
 </p>
 <p align="center">
-    <img src="images/img_3.png" alt="Description of the image" width="300" />
+    <img src="images/img_3.png" alt="Description of the image" />
     <br />
     <em>Adding a new patient's data</em>
 </p>
 <p align="center">
-    <img src="images/img_4.png" alt="Description of the image" width="300" />
+    <img src="images/img_4.png" alt="Description of the image"  />
     <br />
     <em>Editing a record</em>
 </p>
 <p align="center">
-    <img src="images/img_2.png" alt="Description of the image" width="300" />
+    <img src="images/img_2.png" alt="Description of the image" />
     <br />
     <em>Deleting a record</em>
 </p>
 <p align="center">
-    <img src="images/img_5.png" alt="Description of the image" width="300" />
+    <img src="images/img_5.png" alt="Description of the image" />
     <br />
     <em>Validation errors</em>
 </p>
