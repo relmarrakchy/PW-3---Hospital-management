@@ -100,7 +100,7 @@ public class Patient {
     <em>Validation errors</em>
 </p>
 <p align="center">
-    <img src="images/img_6.png" alt="Description of the image" width="300" />
+    <img src="images/img_6.png" alt="Description of the image" />
     <br />
     <em>Access denied</em>
 </p>
