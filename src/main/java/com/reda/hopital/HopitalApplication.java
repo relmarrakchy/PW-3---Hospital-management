@@ -6,6 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.nio.file.Paths;
 import java.util.Date;
@@ -21,23 +24,9 @@ public class HopitalApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Patient reda = Patient.builder()
-                .fn("Reda")
-                .ln("Elmarrakchy")
-                .sick(false)
-                .score(10)
-                .birthday(new Date())
-                .build();
-
-        Patient mouad = Patient.builder()
-                .fn("Mouad")
-                .ln("Boufenzi")
-                .sick(false)
-                .score(14)
-                .birthday(new Date())
-                .build();
-
-        patientRepository.save(mouad);
-        patientRepository.save(reda);
+    }
+    @Bean
+    PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
     }
 }

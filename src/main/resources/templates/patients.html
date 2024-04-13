@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+    layout:decorate="navBar">
 
 <head>
     <meta charset="UTF-8">
@@ -8,14 +11,14 @@
     <link rel="stylesheet" href="/webjars/bootstrap-icons/1.11.3/font/bootstrap-icons.css">
 </head>
 <body>
-    <div class="p-3">
+    <div class="p-3" layout:fragment="content1">
         <div class="card">
             <div class="card-header">
                 Patients list
             </div>
 
             <div class="card-body">
-                <form method="get" th:action="@{index}">
+                <form method="get" th:action="@{/user/index}">
                     <div>
                         <label>Keyword</label>
                         <input class="form-control m-2" type="text" name="keyword">
@@ -24,7 +27,7 @@
                         </button>
                     </div>
                 </form>
-                <table>
+                <table class="table table-striped">
                     <tr>
                         <th>ID</th>
                         <th>First name</th>
@@ -41,12 +44,18 @@
                         <td th:text="${p.getBirthday()}"></td>
                         <td th:text="${p.sick}"></td>
                         <td th:text="${p.getScore()}"></td>
-                        <td>
+                        <td sec:authorize="hasRole('ADMIN')">
                             <a
                                     onclick="return confirm('R u really want to delete this record ?')"
                                     class="btn btn-danger"
-                                    th:href="@{delete(id=${p.id}, keyword=${keyword}, page=${currentPage})}"
+                                    th:href="@{/admin/delete(id=${p.id}, keyword=${keyword}, page=${currentPage})}"
                             ><i class="bi bi-trash"></i></a>
+                        </td>
+                        <td>
+                            <a
+                                    class="btn btn-info"
+                                    th:href="@{/admin/edit(id=${p.id})}"
+                            ><i class="bi bi-pen"></i></a>
                         </td>
                     </tr>
                 </table>
@@ -56,7 +65,7 @@
                         <a class="btn btn-outline-info"
                            th:class="${(currentPage == status.index)? 'btn btn-info' : 'btn btn-outline-info'}"
                            th:text="${status.index}"
-                           th:href="@{/index(page=${status.index}, keyword=${keyword})}"></a>
+                           th:href="@{/user/index(page=${status.index}, keyword=${keyword})}"></a>
                     </li>
                 </ul>
             </div>
