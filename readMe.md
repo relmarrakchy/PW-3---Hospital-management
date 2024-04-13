@@ -70,7 +70,7 @@ public class Patient {
 
 ## Demo :
 <p align="center">
-    <img src="images/img.png" alt="Description of the image" width="300" />
+    <img src="images/img.png" alt="Description of the image" />
     <br />
     <em>Login page</em>
 </p>
